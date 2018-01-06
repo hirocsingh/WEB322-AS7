@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+   		 <title>WEB322 App</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
+        <link rel="stylesheet" href="/css/site.css" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-
+        BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+	</head>
+<body>
+	<header>
+        <div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1>MY APP 7.0
+						{{#if session.user}}
+						 <span class="pull-right">
+							<div class="dropdown">
+							<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true">
+								<span class="glyphicon glyphicon-user"></span> {{session.user.username}} &nbsp;&nbsp;
+							</button>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+								<li><a href="/logout"><span class="glyphicon glyphicon-off"></span>Logout</a></li>
+							</ul>
+							</div>
+						</span>
+						{{else}}
+							<span class="pull-right"><a class="btn btn-success"href="/login">&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;</a> <a class="btn btn-primary"href="/register">&nbsp;&nbsp;&nbsp;Register&nbsp;&nbsp;&nbsp;</a></span>
+						{{/if}}
+					</h1>
+				</div>
+			</div>
+		</div>
+      </header>
+     <nav>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<ul class="pull-left">
+                        <li> <a href="/"> Home </a> </li>
+                        <li> <a href="/about"> About </a> </li>
+                    </ul>
+                    <ul class="pull-right">
+						{{#if session.user}}
+                        <li> <a href="/employees"> All Employees </a> </li>
+                        <li> <a href="/managers"> Managers </a> </li>
+                        <li> <a href="/departments"> Departments </a> </li>
+						{{/if}}
+                    </ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+   <div class="container">
+        {{{body}}}
+	</div>
+    <footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2>© 2017 - Avinash Singh</h2>
+				</div>
+			</div>
+		</div>
+   </footer>
+</body>
+
+</html>
